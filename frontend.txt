@@ -1,0 +1,61 @@
+#Pages
+HOME  - LOGIN/REGISTER , FIND STAFF , STAFF AVAILABLE TODAY, BOOK APPOINTMENT , SERVICES
+SERVICES - LIST - SERVICE IMAGE, SERVICE DESCRIPTION , SERVICE STAFF , BOOK APPOINTMENT 
+ABOUT US - TEMPLATE
+CONTACT US - TEMPLATE
+
+<!-- Method 1 -->
+#Add to Database
+APPOINTMENT add column "services_id"
+SERVICES id,name,description,image,average price
+#New Model
+SERVICE
+#List Service Per Appointment
+$appointment = Appointment::all();
+$services = Service::where('id',$appointment->services_id);
+
+1 service per day per appointment for each staff.
+
+
+OR 
+
+<!-- Method 2 -->
+#Use Contoller and Routes:
+#List services with Staff::where('$user_id','$date','date')->get() as <button>Book Appointment</button>(
+    page 1- service + book app
+    page 2- calendar view + compact('staff available + book app')
+    page 3- appointment time slots + complete app button-> (mail client + staff)
+
+#Pull service_id from page to link to Appointment::where('user_id') and output in Email/Appointment
+
+
+
+#Notes:
+<Services List Card Home page  class="my-post-content pt-3">
+
+Price HTML >Average Price<  {{$price}}
+
+Service Image - Banner image {{$image}}   {{ asset('/images/services/*.jpg') }} 
+
+Submit report in contact page (communicate with admin via email)
+
+Staff add progress decription to appointment <textarea>
+
+Staff accept or decline appointment
+
+Booking table add Service, Specifications, phone number 
+
+
+#Changes:
+Use case diag & text admin: remove make appointment + manage appointment + add new client data 
+
+Figure 3. Class Diagram
+Figure 4. Entity Relationship Diagram
+Figure 5. Use case diagram for the Client Appointment Scheduling System
+Figure 7. Use case diagram for the Administrator
+Figure 8. Relational Database Model
+
+Between Abstract Pg. v  & Chapter 1: Introduction Pg.1  add:
+List of Figures
+List of Tables
+List of Abbreviations Used
